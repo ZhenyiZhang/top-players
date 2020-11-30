@@ -1,7 +1,7 @@
-import Card from '../components/card/card'
+import Card from '../../components/card/card'
 import styled from 'styled-components'
-import players from '../lib/players-data/players'
-import styles from "../styles/Home.module.css";
+import players from '../../lib/players-data/players'
+import styles from "../../styles/Home.module.css";
 
 
 const PlayersLayer = styled.div`
@@ -12,7 +12,7 @@ const PlayersLayer = styled.div`
     margin-top: 3rem;
 `;
 
-export default function Players(){
+export default function AllPlayer(){
     return(
         <div className={styles.container}>
             <main className={styles.main}>
