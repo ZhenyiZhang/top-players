@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-const CardLayer = styled.div`
-  margin: 0.5rem;
-  height: 300px;
-  perspective: 1000px;
-  overflow: hidden;
-  width: 200px;
-`;
 
 const CardInner = styled.div`
   height: 100%;
@@ -15,10 +8,19 @@ const CardInner = styled.div`
   transition: transform 0.5s;
   transform-style: preserve-3d;
   width: 100%;
-  &:hover {transform: rotateY(180deg);}
 `;
 
-const FlipCard = `
+const FlipCard = styled.div`
+  margin: 0.5rem;
+  height: 300px;
+  overflow: hidden;
+  width: 200px;
+  &:hover ${CardInner}{
+      transform: rotateY(180deg);
+  }
+`;
+
+const CardCommon = `
   border: 5px solid black;
   border-radius: 10%;
   backface-visibility: hidden;
@@ -29,14 +31,14 @@ const FlipCard = `
 `;
 
 const FlipCardFront = styled.div`
-  ${FlipCard}
+  ${CardCommon}
   background-color: #bbb;
   position: relative; 
   color: black;
 `;
 
 const FlipCardBack = styled.div`
-  ${FlipCard}
+  ${CardCommon}
   background-color: black;
   color: white;
   position: absolute;
@@ -58,7 +60,7 @@ const FrontText = styled.div`
 
 export default function Card(props) {
     return (
-        <CardLayer>
+        <FlipCard>
             <CardInner>
                 <FlipCardBack>
                     <h1>{props.cardData.name}</h1>
@@ -70,6 +72,6 @@ export default function Card(props) {
                     <FrontText>{props.cardData.ranking}</FrontText>
                 </FlipCardFront>
             </CardInner>
-        </CardLayer>
+        </FlipCard>
     );
 };
