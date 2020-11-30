@@ -12,7 +12,7 @@ const PlayersLayer = styled.div`
     margin-top: 3rem;
 `;
 
-export default function AllPlayer(){
+export default function AllPlayers(){
     return(
         <div className={styles.container}>
             <main className={styles.main}>

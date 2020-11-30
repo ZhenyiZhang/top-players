@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          See My  <a href="/players">Top Five NBA Players</a>
+          See My  <a href="/players/allPlayers">Top Five NBA Players</a>
         </h1>
       </main>
       <footer className={styles.footer}>
