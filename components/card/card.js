@@ -1,30 +1,28 @@
 import styled from 'styled-components';
 
 const CardLayer = styled.div`
-  background-color: transparent;
-  width: 300px;
-  height: 400px;
-  border: 1px solid #f1f1f1;
+  height: 300px;
   perspective: 1000px;
+  width: 200px;
 `;
 
 const CardInner = styled.div`
-  &:hover {transform: rotateY(180deg);}
-  border-radius: 5%;
-  position: relative;
-  width: 100%;
   height: 100%;
+  position: relative;
   text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d; 
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  width: 100%;
+  &:hover {transform: rotateY(180deg);}
 `;
 
 const FlipCard = `
+  border-radius: 5%;
+  backface-visibility: hidden;
+  height: 100%;
   position: absolute;
   width: 100%;
-  height: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
 `;
 
 const FlipCardFront = styled.div`
@@ -35,28 +33,28 @@ const FlipCardFront = styled.div`
 
 const FlipCardBack = styled.div`
   ${FlipCard}
-  background-color: dodgerblue;
+  background-color: black;
   color: white;
   transform: rotateY(180deg);
 `;
 
 const Photo = styled.img`
-    width: 300px;
-    height: 400px;
-    border-radius: 5%;
+  border-radius: 5%;
+  height: 300px;
+  width: 200px;
 `;
 
-export default function Card(cardData) {
+export default function Card(props) {
     return (
         <CardLayer>
             <CardInner>
                 <FlipCardBack>
-                    <h1>Michael Jordan</h1>
-                    <p>Chicago Bulls</p>
-                    <p>6-time champs</p>
+                    <h1>{props.cardData.name}</h1>
+                    <p>{props.cardData.team}</p>
+                    <p>Ranking #{props.cardData.ranking}</p>
                 </FlipCardBack>
                 <FlipCardFront>
-                    <Photo src="/images/michael-jordan.jpg" alt="MJ"/>
+                    <Photo src={props.cardData.imageSrc} alt="MJ"/>
                 </FlipCardFront>
             </CardInner>
         </CardLayer>
