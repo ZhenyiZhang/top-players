@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const CardLayer = styled.div`
+  margin: 0.5rem;
   height: 300px;
   perspective: 1000px;
+  overflow: hidden;
   width: 200px;
 `;
 
@@ -17,10 +19,11 @@ const CardInner = styled.div`
 `;
 
 const FlipCard = `
-  border-radius: 5%;
+  border: 5px solid black;
+  border-radius: 10%;
   backface-visibility: hidden;
   height: 100%;
-  position: absolute;
+  overflow: hidden;
   width: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
 `;
@@ -28,6 +31,7 @@ const FlipCard = `
 const FlipCardFront = styled.div`
   ${FlipCard}
   background-color: #bbb;
+  position: relative; 
   color: black;
 `;
 
@@ -35,13 +39,21 @@ const FlipCardBack = styled.div`
   ${FlipCard}
   background-color: black;
   color: white;
+  position: absolute;
   transform: rotateY(180deg);
 `;
 
 const Photo = styled.img`
-  border-radius: 5%;
   height: 300px;
   width: 200px;
+`;
+
+const FrontText = styled.div`
+  color: white;
+  font-size: 20px;
+  left: 16px;
+  position: absolute;
+  top: 8px;
 `;
 
 export default function Card(props) {
@@ -55,6 +67,7 @@ export default function Card(props) {
                 </FlipCardBack>
                 <FlipCardFront>
                     <Photo src={props.cardData.imageSrc} alt="MJ"/>
+                    <FrontText>{props.cardData.ranking}</FrontText>
                 </FlipCardFront>
             </CardInner>
         </CardLayer>

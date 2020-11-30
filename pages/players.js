@@ -3,11 +3,6 @@ import styled from 'styled-components'
 import players from '../lib/players-data/players'
 import styles from "../styles/Home.module.css";
 
-const Main = styled.div`
-  padding: 5rem 0;
-  justify-content: center;
-  align-items: center;
-`;
 
 const PlayersLayer = styled.div`
     align-items: center;
@@ -19,13 +14,17 @@ const PlayersLayer = styled.div`
 
 export default function Players(){
     return(
-        <Main>
-            <h1 className={styles.title}>My Top Five NBA Players</h1>
-            <PlayersLayer>
-                {players.map(player => {
-                    return(<Card key={player.name} cardData={player}/>);
-                })}
-            </PlayersLayer>
-        </Main>
+        <div className={styles.container}>
+            <main className={styles.main}>
+                <h1 className={styles.title}>My Top Five Players</h1>
+                <PlayersLayer>
+                    {players.map(player => {
+                        return(<Card key={player.name} cardData={player}/>);
+                    })}
+                </PlayersLayer>
+            </main>
+            <footer className={styles.footer}>
+            </footer>
+        </div>
     );
 };
