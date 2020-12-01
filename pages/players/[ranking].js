@@ -1,9 +1,23 @@
 import Card from '../../components/card/card'
 import players from '../../lib/players-data/players'
+import styled from 'styled-components'
+import {space, layout, flexbox} from 'styled-system'
+
+const CardWrapper = styled.div`
+    ${space}
+    ${layout}
+    ${flexbox}
+`;
 
 export default function Player({playerData}) {
     return(
-        <Card cardData={playerData}/>
+        <CardWrapper
+            minHeight='100vh'
+            alignItems='center'
+            display='flex'
+            justifyContent='center'>
+            <Card cardData={playerData}/>
+        </CardWrapper>
     );
 }
 

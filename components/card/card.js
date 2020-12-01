@@ -31,14 +31,14 @@ const CardCommon = `
 `;
 
 const FlipCardFront = styled.div`
-  ${CardCommon}
+  ${CardCommon};
   background-color: #bbb;
   position: relative; 
   color: black;
 `;
 
 const FlipCardBack = styled.div`
-  ${CardCommon}
+  ${CardCommon};
   background-color: black;
   color: white;
   position: absolute;
