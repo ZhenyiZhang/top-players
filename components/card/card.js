@@ -20,6 +20,7 @@ const FlipCard = styled.div`
   }
 `;
 
+// @NOTE: monitor performance
 const CardCommon = `
   border: 5px solid black;
   border-radius: 10%;
@@ -31,14 +32,14 @@ const CardCommon = `
 `;
 
 const FlipCardFront = styled.div`
-  ${CardCommon}
+  ${CardCommon};
   background-color: #bbb;
   position: relative; 
   color: black;
 `;
 
 const FlipCardBack = styled.div`
-  ${CardCommon}
+  ${CardCommon};
   background-color: black;
   color: white;
   position: absolute;
