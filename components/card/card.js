@@ -1,5 +1,4 @@
-import styled from 'styled-components';
-
+import styled, {css} from 'styled-components';
 
 const CardInner = styled.div`
   height: 100%;
@@ -11,8 +10,8 @@ const CardInner = styled.div`
 `;
 
 const FlipCard = styled.div`
-  margin: 0.5rem;
   height: 300px;
+  margin: 0.5rem;
   overflow: hidden;
   width: 200px;
   &:hover ${CardInner}{
@@ -20,11 +19,10 @@ const FlipCard = styled.div`
   }
 `;
 
-// @NOTE: monitor performance
-const CardCommon = `
+const CardCommon = css`
+  backface-visibility: hidden;
   border: 5px solid black;
   border-radius: 10%;
-  backface-visibility: hidden;
   height: 100%;
   overflow: hidden;
   width: 100%;
@@ -34,8 +32,8 @@ const CardCommon = `
 const FlipCardFront = styled.div`
   ${CardCommon};
   background-color: #bbb;
-  position: relative; 
   color: black;
+  position: relative; 
 `;
 
 const FlipCardBack = styled.div`
